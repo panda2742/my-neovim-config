@@ -25,3 +25,7 @@ end
 
 require "lazy_setup"
 require "polish"
+
+require("lspconfig").gopls.setup({
+  cmd = { os.getenv("HOME") .. "/local/go/go/bin/gopls" },
+})
