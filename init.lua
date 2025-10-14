@@ -29,3 +29,14 @@ require "polish"
 require("lspconfig").gopls.setup({
   cmd = { os.getenv("HOME") .. "/local/go/go/bin/gopls" },
 })
+
+require('neo-tree').setup {
+  filesystem = {
+    filtered_items = {
+      visible = true,
+      hide_dotfiles = false,
+      hide_gitignoed = false
+    }
+  }
+}
+
