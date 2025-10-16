@@ -40,3 +40,4 @@ require('neo-tree').setup {
   }
 }
 
+vim.opt.swapfile = false
