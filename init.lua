@@ -26,9 +26,16 @@ end
 require "lazy_setup"
 require "polish"
 
-require("lspconfig").gopls.setup({
-  cmd = { os.getenv("HOME") .. "/local/go/go/bin/gopls" },
-})
+local gopls_path = os.getenv("HOME") .. "/local/go/go/bin/gopls"
+
+if vim.fn.filereadable(gopls_path) == 1 then
+  require("lspconfig").gopls.setup({
+    cmd = { gopls_path },
+  })
+else
+  vim.notify("gopls not found at " .. gopls_path, vim.log.levels.WARN)
+end
+
 
 require('neo-tree').setup {
   filesystem = {
